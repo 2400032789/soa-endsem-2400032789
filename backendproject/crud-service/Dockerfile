@@ -22,7 +22,7 @@ RUN ./mvnw clean package -DskipTests
 FROM eclipse-temurin:21-jre
 
 WORKDIR /app
-EXPOSE 8001
+EXPOSE 8081
 
 # Copy generated JAR file
 COPY --from=build /app/target/*.jar app.jar

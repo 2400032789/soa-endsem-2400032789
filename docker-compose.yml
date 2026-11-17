@@ -14,7 +14,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d soa-skill-exam-2400032789"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d endsem_2400032789"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -23,13 +23,13 @@ services:
       - microservices-network
 
   exam-service:
-    image: 2400032789klu/endsem-2400032789:latest
+    image: 2400032789klu/endsem_2400032789:latest
     build:
       context: ./backend project
       dockerfile: Dockerfile
     container_name: exam-service
     ports:
-      - "9001:8001"
+      - "9001:8081"
 
     depends_on:
       postgresdb:
